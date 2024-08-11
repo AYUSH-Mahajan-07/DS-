@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a[100], start_element, mid, end_element, i, n, value;
+
+    cout << "Enter the array size: " << endl;
+    cin >> n;
+
+    cout << "Enter sorted array (ascending or descending) : " << endl;
+    for (i = 0; i < n; i++)
+    {
+        cout << "a [" << i << "] = ";
+        cin >> a[i];
+    }
+
+    start_element = 0;
+    end_element = n - 1; // size of array n - 1
+
+    cout << "Value to be searched from sorted array: " << endl;
+    cin >> value;
+
+    while (start_element <= end_element)
+    {
+        mid = (start_element + end_element) / 2;
+
+        if (a[mid] == value)
+        {
+            cout << "Element is found at index " << (mid + 1);
+            exit(0);
+        }
+
+        else if (value > a[mid])
+        {
+            start_element = mid + 1;
+        }
+
+        else if (value < a[mid])
+        {
+            end_element = mid - 1;
+        }
+    }
+    cout << "Number is not found. " << endl;
+    return 0;
+}
